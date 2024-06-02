@@ -1,0 +1,3 @@
+[submodule "ONR/Graph_Capsule_Convolution"]
+	path = ONR/Graph_Capsule_Convolution
+	url = https://github.com/prithvi-poddar/Graph_Capsule_Convolution
