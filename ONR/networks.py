@@ -105,7 +105,10 @@ class ActorNetwork(nn.Module):
     def sample_normal(self, state, reparameterize=True):
         probs = self.forward(state)
         probabilities = Categorical(probs)
-        action = probabilities.sample()
+        if reparameterize:
+            action = probabilities.rsample()
+        else:
+            action = probabilities.sample()
         log_probs = probabilities.log_prob(action).sum(axis=-1, keepdim=True)
         log_probs.to(self.device)
 
